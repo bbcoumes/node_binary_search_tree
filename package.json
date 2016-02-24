@@ -1,0 +1,14 @@
+{
+  "name": "bst",
+  "version": "1.0.0",
+  "description": "This is a project to implement a bst in node",
+  "main": "bst.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben Coumes",
+  "license": "ISC",
+  "dependencies": {
+    "tape": "^4.4.0"
+  }
+}
