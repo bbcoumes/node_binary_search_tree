@@ -1,11 +1,10 @@
 'use strict';
-var bst_node = {
-	left: '',
-	right: '',
-	count: 0,
-	setNodeCount: function setNodeCount(x) {
-		this.setNodeCount = x;
+const bstNode = {
+	left : null,
+	right : null,
+	nodeValue : '',
+	setNodeValue(newValue) {
+		bstNode.nodeValue = newValue;
 	},
-	value: '',
 };
-module.exports = bst_node;
+module.exports = bstNode;

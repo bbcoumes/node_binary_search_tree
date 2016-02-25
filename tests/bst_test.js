@@ -8,7 +8,7 @@ test('Testing bst', (assert) => {
 	assert.equal(isTreeEmpty, true, 
 		'Given an empty tree, checkIfEmpty should return true');
 	let insertNode = bst.insertNode(1);
-	assirt.equal(insertNode, true, 
-		'Given an empty tree, insertNode(1) should return true');
+	assert.equal(bst.tree.length !==0, true, 
+		'Given an empty tree, insertNode(1) should create a tree with length > 0');
 	assert.end();
 });
