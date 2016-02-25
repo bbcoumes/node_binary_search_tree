@@ -1,6 +1,7 @@
 'use strict';
 
 const bstNode = require('./bst_node');
+const _  = require('lodash');
 
 const bst = {
 	
@@ -12,14 +13,15 @@ const bst = {
 	 * @return none
 	 */
 	insertNode(newValue, treeRoot) {
-		let rootValue = treeRoot || 0; 
+		
+		let rootValue = treeRoot || 0;
+		let newNode = new bstNode();
+		newNode.setNodeValue(newValue);
+
 		if(bst.checkIfEmpty){
-			let newNode = Object.create(bstNode);
-			newNode.setNodeValue(newValue);
 			bst.tree.push(newNode);
 		} else {
-			let newNode = Object.create(bstNode);
-			newNode.setNodeValue(newValue);
+			
 			let currentNode = tree[rootValue];
 			while(currentNode) {
 				//go right
@@ -28,7 +30,7 @@ const bst = {
 						bst.insertNode(newValue, currentNode.right);
 					} else {
 						bst.tree.push(newNode);
-						current.right = bst.tree.length -1;
+						currentNode.right = bst.tree.length -1;
 					}
 				}
 				//go left
@@ -56,10 +58,4 @@ const bst = {
 
 	},
 };
-
-let bstTree = Object.create(bst);
-bstTree.insertNode(5);
-console.log(bstTree.tree);
-bstTree.insertNode(6);
-console.log(bstTree.tree);
 module.exports = bst;

@@ -1,10 +1,11 @@
 'use strict';
-const bstNode = {
-	left : null,
-	right : null,
-	nodeValue : '',
-	setNodeValue(newValue) {
-		bstNode.nodeValue = newValue;
-	},
+function bstNode() {
+	this.left = '';
+	this.right = '';
+	this.nodeValue = '';
+	
+	this.setNodeValue = function setNodeValue(newValue) {
+		this.nodeValue = newValue;
+	};
 };
 module.exports = bstNode;
