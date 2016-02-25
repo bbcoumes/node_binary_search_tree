@@ -1,11 +1,33 @@
 'use strict';
+
 function bstNode() {
-	this.left = '';
-	this.right = '';
-	this.nodeValue = '';
-	
+	let left = '';
+	let right = '';
+	let nodeValue = '';
+
 	this.setNodeValue = function setNodeValue(newValue) {
-		this.nodeValue = newValue;
+		nodeValue = newValue;
 	};
+
+	this.getNodeValue = function getNodeValue() {
+		return nodeValue;
+	}
+
+	this.setRight = function setRight(x) {
+		right = x;
+	}
+
+	this.getRight = function getRight() {
+		return right;
+	}
+
+	this.setLeft = function setLeft(x) {
+		left = x;
+	}
+
+	this.getLeft = function getLeft() {
+		return left;
+	}
+
 };
 module.exports = bstNode;
