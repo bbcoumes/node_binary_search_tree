@@ -6,8 +6,8 @@ const bst = {
 	
 	tree: '',
 
-	insertNode() {
-
+	insertNode(newValue) {
+		return false;
 	},
 
 	checkIfEmpty() {
