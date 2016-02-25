@@ -1,7 +1,8 @@
 'use strict';
-var node = require('./bst_node');
 
-var bst = {
+const node = require('./bst_node');
+
+const bst = {
 	insertNode :'',
 	checkIfEmpty : '',
 	searchTree : '',
