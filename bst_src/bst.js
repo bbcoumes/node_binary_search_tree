@@ -1,28 +1,28 @@
 'use strict';
 
-const node = require('./bst_node');
+const bstNode = require('./bst_node');
 
 const bst = {
-	insertNode :'',
-	checkIfEmpty : '',
-	searchTree : '',
-	removeNode : '',
+	
 	tree: '',
-};
 
-bst.insrtNode = function insertNode(x) {
+	insertNode() {
 
-};
+	},
 
-bst.checkIfEmpty = function() {
-	if (this.tree===''){
-		return true;
-	}
-	return false;
-};
+	checkIfEmpty() {
+		if (bst.tree===''){
+			return true;
+		}
+		return false;
+	},
 
-bst.searchTree = function searchTree() {
+	searchTree() {
 
+	},
+	removeNode() {
+
+	},
 };
 
 module.exports = bst;
