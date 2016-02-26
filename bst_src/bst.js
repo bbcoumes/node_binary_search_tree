@@ -17,27 +17,28 @@ const bst = {
 		let rootValue = treeRoot || 0;
 
 		let newNode = new bstNode();
-		newNode.setNodeValue(newValue);
+		newNode.nodeValue = newValue;
 
-		if(bst.checkIfEmpty){
+		if(bst.checkIfEmpty()){
 			bst.tree.push(newNode);
 		} else {
 			let currentNode = bst.tree[rootValue];
-			while(currentNode) {
+			while(currentNode !==undefined) {
 				//go right
-				if (currentNode.getNodeValue < newValue) {
-					if(currentNode.getRight()) {
+				if (currentNode.nodeValue < newValue) {
+					if(currentNode.right !=='') {
 						bst.insertNode(newValue, currentNode.right);
 					} else {
 						bst.tree.push(newNode);
-            currentNode.setRight(bst.tree.length -1);
+            currentNode.right = bst.tree.length-1;
 						bst.tree[treeRoot] = currentNode;
 					}
 				}
 				//go left
-				else if(currentNode > newValue) {
+				else if(currentNode.nodeValue > newValue) {
 
 				}
+				break;
 			}
 
 		}
@@ -61,5 +62,8 @@ const bst = {
 };
 let coolBst = Object.create(bst);
 coolBst.insertNode(1);
+coolBst.insertNode(2);
+coolBst.insertNode(3);
 console.log(coolBst.tree);
+console.log(coolBst.tree[4]);
 module.exports = bst;
