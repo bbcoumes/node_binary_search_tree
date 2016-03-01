@@ -16,54 +16,83 @@ const bst = {
 		
 		let rootValue = treeRoot || 0;
 
-		let newNode = new bstNode();
-		newNode.nodeValue = newValue;
-
 		if(bst.checkIfEmpty()){
-			bst.tree.push(newNode);
+			this.tree.push(bst.createNode(newValue));
 		} else {
-			let currentNode = bst.tree[rootValue];
-			while(currentNode !==undefined) {
+			let currentNode = this.tree[rootValue];
+			if(currentNode !==undefined) {
+				let comparedValue = this.compareValues(currentNode.nodeValue, newValue);
 				//go right
-				if (currentNode.nodeValue < newValue) {
-					if(currentNode.right !=='') {
-						bst.insertNode(newValue, currentNode.right);
+				if (comparedValue > 0) {
+					if(currentNode.right !==null) {
+						this.insertNode(newValue, currentNode.right);
 					} else {
-						bst.tree.push(newNode);
-            currentNode.right = bst.tree.length-1;
-						bst.tree[treeRoot] = currentNode;
+						this.tree.push(this.createNode(newValue));
+            currentNode.right = this.tree.length-1;
+						this.tree[treeRoot] = currentNode;
 					}
 				}
 				//go left
-				else if(currentNode.nodeValue > newValue) {
-
+				else if (comparedValue < 1){
+					if(currentNode.left !==null){
+						this.insertNode(newValue, currentNode.left);
+					} else {
+						this.tree.push(this.createNode(newValue));
+            currentNode.left = this.tree.length-1;
+						this.tree[treeRoot] = currentNode;
+					}
 				}
-				break;
 			}
-
 		}
 	},
 
 	checkIfEmpty() {
-		if (bst.tree.length === 0){
+		if (this.tree.length === 0){
 			return true;
 		}
 		return false;
 	},
 
-	searchTree() {
-		if(bst.checkIfEmpty){
+	searchTree(searchValue) {
+		if(this.checkIfEmpty()){
 			return false;
 		}
+		let currentIndex = 0;
+		let currentNode = this.tree[currentIndex];
+		while (currentNode !==undefined){
+			let cmp = this.compareValues(currentNode.nodeValue, searchValue);
+			if( cmp > 0){
+				currentIndex = currentNode.right;
+			} else if(cmp < 0){
+				currentIndex = currentNode.left;
+			} else {
+				return currentIndex;
+			}
+			currentNode = this.tree[currentIndex];
+		}
+		return false;
 	},
+
 	removeNode() {
 
 	},
+
+	compareValues (a,b){
+		if (a===b){
+			return 0;
+		}
+		else if(a < b){
+			return 1;
+		}
+		else{
+			return -1;
+		}
+	},
+
+	createNode(val){
+		let newNode = new bstNode();
+		newNode.nodeValue = val;
+		return newNode;
+	}
 };
-let coolBst = Object.create(bst);
-coolBst.insertNode(1);
-coolBst.insertNode(2);
-coolBst.insertNode(3);
-console.log(coolBst.tree);
-console.log(coolBst.tree[4]);
 module.exports = bst;

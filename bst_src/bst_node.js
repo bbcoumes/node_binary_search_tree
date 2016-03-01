@@ -1,8 +1,8 @@
 'use strict';
 
 function bstNode() {
-	this.left = '';
-	this.right = '';
-	this.nodeValue = '';
+	this.left = null;
+	this.right = null;
+	this.nodeValue = null;
 };
 module.exports = bstNode;
